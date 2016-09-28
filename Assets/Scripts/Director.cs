@@ -10,6 +10,8 @@ public class Director : MonoBehaviour {
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
 				if (hit.transform.tag.Equals("Player")) {
 					hit.transform.gameObject.GetComponent<AgentScript>().setSelected();
+				} else if (hit.transform.tag.Equals("Obstacle")) {
+					hit.transform.gameObject.GetComponent<MovableObstacle>().setSelected();
 				} else {
 					GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 					foreach (GameObject p in players) {
