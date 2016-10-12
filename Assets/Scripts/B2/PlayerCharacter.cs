@@ -2,20 +2,41 @@
 using System.Collections;
 
 public class PlayerCharacter : MonoBehaviour {
+	public Animator animator;
+	public Rigidbody r_body;
+	public NavMeshAgent agent;
+
 	void Start() {
+		animator.GetComponent<Animator> ();
+		r_body.freezeRotation = true;
+		agent.GetComponent<NavMeshAgent> ();
 	}
+
 	void Update() {
-		if (Input.GetKey("up")) {
-			transform.position += transform.forward * Time.deltaTime * 4.0f;
+		if (Input.GetKey ("space")) {
+			animator.SetBool ("Jump", true);
+			agent.enabled = true;
+		} else {
+			animator.SetBool ("Jump", false);
+			agent.enabled = false;
 		}
-		if (Input.GetKey("down")) {
-			transform.position -= transform.forward * Time.deltaTime * 4.0f;
+
+		if (Input.GetKey ("w") || Input.GetKey ("a") || Input.GetKey ("s") || Input.GetKey ("d")) {
+			animator.SetBool ("Move", true);
+			if (Input.GetKey (KeyCode.LeftControl)) {
+				animator.SetBool ("Run", true);
+			} else {
+				animator.SetBool ("Run", false);
+			}
+		} else {
+			animator.SetBool ("Move", false);
+			animator.SetBool ("Run", false);
 		}
-		if (Input.GetKey("left")) {
-			transform.Rotate(Vector3.up * Time.deltaTime * -64.0f);
-		}
-		if (Input.GetKey("right")) {
-			transform.Rotate(Vector3.up * Time.deltaTime * 64.0f);
-		}
+
+		/*if (Input.GetKey (KeyCode.LeftControl)) {
+			animator.SetBool ("Run", true);
+		} else {
+			animator.SetBool ("Run", false);
+		}*/
 	}
 }
