@@ -37,16 +37,18 @@ public class Agent : MonoBehaviour {
 		Vector2 input = new Vector2(agent.steeringTarget.x, agent.steeringTarget.y).normalized;
 		animator.SetFloat(m_HashHorizontalPara, input.x, m_Damping, Time.deltaTime * 10.0f);
 		animator.SetFloat(m_HashVerticalPara, input.y, m_Damping, Time.deltaTime * 10.0f);
+		
+		animator.SetBool("Jump", !agent.isOnNavMesh);
 	}
 	public void setSelected() {
 		selected = !selected;
 		transform.Find("Plane").gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
 	}
-	public void moveTo(RaycastHit hit) {
+	public void moveTo(Vector3 point) {
 		if (selected) {
 			transform.Find("Plane").gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
 			selected = false;
-			agent.destination = hit.point;
+			agent.destination = point;
 			transform.position = agent.nextPosition;
 		}
 	}

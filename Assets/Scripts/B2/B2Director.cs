@@ -10,7 +10,7 @@ public class B2Director : MonoBehaviour {
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
 				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 				foreach (GameObject p in players) {
-					p.GetComponent<Agent>().moveTo(hit);
+					p.GetComponent<Agent>().moveTo(hit.point);
 				}
 			}
 		} else if (Input.GetMouseButtonDown(1)) {
