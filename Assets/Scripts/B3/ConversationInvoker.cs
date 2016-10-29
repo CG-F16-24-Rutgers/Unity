@@ -23,21 +23,21 @@ public class ConversationInvoker : MonoBehaviour
 
     protected Node Converse()
     {
-        return new Sequence(Wanderer.GetComponent<BehaviorMecanim>().ST_PlayFaceGesture("acknowledging", 1000),
-                            Friend.GetComponent<BehaviorMecanim>().ST_PlayFaceGesture("shaking_head_no", 1000),
-                            Wanderer.GetComponent<BehaviorMecanim>().ST_PlayHandGesture("being_cocky", 1000),
-                            Friend.GetComponent<BehaviorMecanim>().ST_PlayFaceGesture("head_nod_yes", 1000));
+        return new Sequence(Wanderer.GetComponent<BehaviorMecanim>().ST_PlayFaceGesture("ACKNOWLEDGE", 2000),
+                            Friend.GetComponent<BehaviorMecanim>().ST_PlayFaceGesture("HEADSHAKE", 2000),
+                            Wanderer.GetComponent<BehaviorMecanim>().ST_PlayHandGesture("BEINGCOCKY", 2000),
+                            Friend.GetComponent<BehaviorMecanim>().ST_PlayFaceGesture("HEADNOD", 2000));
     }
 
     protected Node EyeContactAndConverse(Val<Vector3> WanderPos, Val<Vector3> FriendPos)
     {
-        return new Race(this.EyeContact(WanderPos, FriendPos),
+        return new Sequence(this.EyeContact(WanderPos, FriendPos),
             this.Converse());
     }
 
     protected Node ApproachAndOrient(Val<Vector3> WanderPos, Val<Vector3> FriendPos)
     {
-        return new Sequence(Friend.GetComponent<BehaviorMecanim>().Node_GoTo(WanderPos),
+        return new Sequence(Friend.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(WanderPos, 1.0f),
             new SequenceParallel(Friend.GetComponent<BehaviorMecanim>().Node_OrientTowards(WanderPos),
                                  Wanderer.GetComponent<BehaviorMecanim>().Node_OrientTowards(FriendPos)));
     }
