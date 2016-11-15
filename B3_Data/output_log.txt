@@ -1,0 +1,99 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon(TM) HD8970M (ID=0x6801)
+    Vendor:   ATI
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\comp Graphics Unity\Unity\B3_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\comp Graphics Unity\Unity\B3_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\comp Graphics Unity\Unity\B3_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\comp Graphics Unity\Unity\B3_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\comp Graphics Unity\Unity\B3_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.033 seconds
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\comp Graphics Unity\Unity\B3_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+The referenced script on this Behaviour (Game Object 'HOLD_RightHand') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_Pocket') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'ContextObject') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_Hidden') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_Pocket') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'ContextObject') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_Hidden') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_RightHand') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'ContextObject') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_RightHand') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_Hidden') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'HOLD_Pocket') is missing!
+ 
+(Filename:  Line: 1656)
+
+UnloadTime: 0.566266 ms
+IndexOutOfRangeException: Array index is out of range.
+  at IKController+BodyIKController..ctor (.CrossfadeFBBIK[] iks, Single swapTime) [0x00000] in <filename unknown>:0 
+  at IKController.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at CrossfadeFBBIKSettings.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at IKController+BodyIKController..ctor (.CrossfadeFBBIK[] iks, Single swapTime) [0x00000] in <filename unknown>:0 
+  at IKController.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at CrossfadeFBBIKSettings.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2120 -> priority: 1 
+  Thread -> id: 2048 -> priority: 1 
