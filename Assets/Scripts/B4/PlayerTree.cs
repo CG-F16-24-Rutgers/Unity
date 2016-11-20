@@ -10,7 +10,6 @@ public class PlayerTree : MonoBehaviour {
     public Transform wander1;
     public Transform wander2;
     public GameObject player;
-    public Val<GameObject> player_val;
 
     public OpenCloseDoor d;
 
@@ -27,11 +26,9 @@ public class PlayerTree : MonoBehaviour {
     //Outter Most SubTree
     protected Node BuildTreeRoot()
     {
-        /*Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2),
+        Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2),
                             new DecoratorLoop(
-                                new Sequence(this.AssertUserClicked())));*/
-        //Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2));
-        Node roaming = new Sequence(this.AssertClickInMap());
+                                new Sequence(this.AssertUserClicked())));
         return roaming;
     }
 
@@ -59,8 +56,9 @@ public class PlayerTree : MonoBehaviour {
         RaycastHit hit;
         Physics.Raycast(ray.Value, out hit, 100);
         Val.V(() => Physics.Raycast(ray.Value, out hit, 100));
+        Val<GameObject> player_val = Val.V(() => player);
 
-            if (player_val.Value.GetComponent<CharacterMecanim>().Body.NavCanReach((Val.V(() => hit.point)).Value) == false)
+        if (player_val.Value.GetComponent<CharacterMecanim>().Body.NavCanReach((Val.V(() => hit.point)).Value) == false)
             {
                 return;
 
