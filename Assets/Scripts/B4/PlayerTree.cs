@@ -29,8 +29,9 @@ public class PlayerTree : MonoBehaviour {
     {
         /*Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2),
                             new DecoratorLoop(
-                                new Sequence( )));*/
-        Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2));
+                                new Sequence(this.AssertUserClicked())));*/
+        //Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2));
+        Node roaming = new Sequence(this.AssertClickInMap());
         return roaming;
     }
 
