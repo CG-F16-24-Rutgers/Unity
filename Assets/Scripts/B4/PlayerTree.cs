@@ -10,6 +10,9 @@ public class PlayerTree : MonoBehaviour {
     public Transform wander1;
     public Transform wander2;
     public GameObject player;
+    public Transform[] path1;
+    public Transform[] path2;
+    public Transform path3;
 
     public OpenCloseDoor d;
 
@@ -26,9 +29,14 @@ public class PlayerTree : MonoBehaviour {
     //Outter Most SubTree
     protected Node BuildTreeRoot()
     {
-        Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2),
+        /*Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2),
                             new DecoratorLoop(
-                                new Sequence(this.AssertUserClicked())));
+                                new Sequence(this.AssertUserClicked())));*/
+        Node roaming = new Sequence(this.DoorOpen_ApproachAndWait(this.wander1), this.DoorClose_ApproachAndWait(this.wander2),
+                            new SequenceShuffle(
+                                new Sequence(this.ST_ApproachAndWait(this.path1[0]), this.ST_ApproachAndWait(this.path1[1]), this.ST_ApproachAndWait(this.path1[2]), this.ST_ApproachAndWait(this.path1[3]), this.ST_ApproachAndWait(this.path1[4])),
+                                new Sequence(this.ST_ApproachAndWait(this.path2[0]), this.ST_ApproachAndWait(this.path2[1]), this.ST_ApproachAndWait(this.path2[2])),
+                                new Sequence(this.ST_ApproachAndWait(this.path3))));
         return roaming;
     }
 
