@@ -13,10 +13,16 @@ public class EndGame : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Player")) {
+        if (other.gameObject.CompareTag("Marker")) {
+            win_text.text = "You Win";
             win_text.enabled = true;
             Application.Quit();
         
+        }
+        if (other.gameObject.CompareTag("Guard")) {
+            win_text.text = "You Lose";
+            win_text.enabled = true;
+            Application.Quit();
         }
     }
 }
