@@ -31,6 +31,8 @@ public class WallClimber : MonoBehaviour {
 
     private Vector3 TargetPoint;
     private Vector3 TargetNormal;
+    private int horizontal;
+    private int vertical;
 
 
     private float lasttime;
@@ -53,7 +55,7 @@ public class WallClimber : MonoBehaviour {
         if (currentSort == Climbingsort.Climbing)
             Climb();
 
-        UpdateStatis();
+        UpdateStats();
 
         if (currentSort == Climbingsort.ClimbingTowardsPoint || currentSort == Climbingsort.ClimbingTowardsPlateau)
             MoveTowardsPoint();
@@ -62,7 +64,7 @@ public class WallClimber : MonoBehaviour {
             Jumping();
 	}
 
-    public void UpdateStatis() {
+    public void UpdateStats() {
         if (currentSort != Climbingsort.Walking  &&  TPC.m_IsGrounded && currentSort != Climbingsort.ClimbingTowardsPoint) {
             currentSort = Climbingsort.Walking;
             TPUC.enabled = true;
@@ -72,7 +74,7 @@ public class WallClimber : MonoBehaviour {
         if (currentSort == Climbingsort.Walking && !TPC.m_IsGrounded)
             currentSort = Climbingsort.Jumping;
 
-        if(currentSort == Climbingsort.Walking && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Horizontal") != 0))
+        if(currentSort == Climbingsort.Walking && (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0))
             CheckForClimbStart();
 
     }
@@ -274,7 +276,6 @@ public class WallClimber : MonoBehaviour {
             return curray;
 
         } else {
-            curray.CanGoToPoint = false;
             trans.gameObject.layer = oldlayer;
             return curray;
         }
