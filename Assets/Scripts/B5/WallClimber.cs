@@ -319,7 +319,7 @@ public class WallClimber : MonoBehaviour {
 
     public void CheckForClimbStart() {
         RaycastHit hit2;
-
+        
         Vector3 dir = transform.forward - transform.up / 0.8f;
 
         if (!Physics.Raycast(transform.position + transform.rotation * RaycastPosition, dir, 1.6f) && !Input.GetButton("Jump")) {
