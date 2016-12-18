@@ -31,8 +31,6 @@ public class WallClimber : MonoBehaviour {
 
     private Vector3 TargetPoint;
     private Vector3 TargetNormal;
-    private int horizontal;
-    private int vertical;
 
 
     private float lasttime;
@@ -45,10 +43,11 @@ public class WallClimber : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-    }
+}
 	
 	// Update is called once per frame
 	void Update () {
+
         if (currentSort == Climbingsort.Walking && Input.GetAxis("Vertical") > 0)
             StartClimbing();
 
